@@ -68,9 +68,66 @@ function addEngineer() {
     })
 }
 
+function addIntern() {
+    inquirer.prompt([
+        {
+            type: "input",
+            name: "internName",
+            message: "What is your Intern's name?"
+        },
+        {
+            type: "input",
+            name: "internId",
+            message: "What is your Intern's ID number?"
+        },
+        {
+            type: "input",
+            name: "internEmail",
+            message: "What is your Intern's email?"
+        },
+        {
+            type: "input",
+            name: "internSchool",
+            message: "What school does your Intern currently attend?"
+        },
+    ]).then(function(answers){
+        const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
+        console.log(intern);
+    })
+}
+
+function addManager() {
+    inquirer.prompt([
+        {
+            type: "input",
+            name: "managerName",
+            message: "What is your Manager's name?"
+        },
+        {
+            type: "input",
+            name: "managerId",
+            message: "What is your Manager's ID number?"
+        },
+        {
+            type: "input",
+            name: "managerEmail",
+            message: "What is your Manager's email?"
+        },
+        {
+            type: "input",
+            name: "managerOffice",
+            message: "What is your Manager's Office Number?"
+        },
+    ]).then(function(answers){
+        const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerOffice);
+        console.log(manager);
+    })
+}
+
 askQuestion();
 addEngineer();
-
+addIntern();
+addManager();
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
